@@ -7,6 +7,8 @@ const mensController = require("./controllers/men.controller");
 const womensController = require("./controllers/women.controller");
 const { register, login } = require("./controllers/auth.controller");
 
+const cartController = require("./controllers/cart.controller");
+
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +18,7 @@ app.use("/mens", mensController);
 app.use("/womens", womensController);
 app.post("/register", register);
 app.post("/login", login);
+app.use("/cart", cartController);
 
 
 module.exports = app;
