@@ -2,13 +2,12 @@ const mongoose = require("mongoose");
 
 const cartSchema = new mongoose.Schema(
     {
-        product_id: [
+        product_id: 
             {
             type:mongoose.Schema.Types.ObjectId,
             ref:"combi",
             required:false
-            }
-        ],
+            },
         total:{type:String, required:true}
         
     },

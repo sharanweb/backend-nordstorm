@@ -7,6 +7,7 @@ const mensController = require("./controllers/men.controller");
 const womensController = require("./controllers/women.controller");
 const cartController = require("./controllers/cart.controller");
 const combiController = require("./controllers/combi.controler");
+const singleController = require("./controllers/single.controller");
 const { register, login } = require("./controllers/auth.controller");
 
 
@@ -20,6 +21,7 @@ app.use("/mens", mensController);
 app.use("/womens", womensController);
 app.use("/cart", cartController);
 app.use("/combi",combiController);
+app.use("/single",singleController);
 app.post("/register", register);
 app.post("/login", login);
 
