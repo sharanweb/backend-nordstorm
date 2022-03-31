@@ -37,7 +37,7 @@ router.get("/sort/fabric", async (req, res) => {
         .find({ gender: { $eq: `${fabric}` } })
         .lean()
         .exec();
-    return res.status(201).send({ product });
+    return res.status(201).send({ combi:product });
 })
 
 //to sort the product by colors
@@ -47,7 +47,7 @@ router.get("/sort/color", async (req, res) => {
         .find({ color: { $eq: `${color}` } })
         .lean()
         .exec();
-    return res.status(201).send({ prodColor });
+    return res.status(201).send({ combi:prodColor });
 })
 
 // //to sort the product by brands
@@ -58,21 +58,21 @@ router.get("/sort/brand", async (req, res) => {
         .find({ brand: { $eq: `${brand}` } })
         .lean()
         .exec();
-    return res.status(200).send({ prodBrand });
+    return res.status(200).send({ combi:prodBrand });
     } catch (error) {
         return res.status(500).send({message: error.message});
     }
 });
 
-// //to sort the product by types
-// router.get("/sort/brand", async (req, res) => {
-//     const brand = req.query.brand;
-//     const prodBrand = await Product
-//         .find({ brand: { $eq: `${brand}` } })
-//         .lean()
-//         .exec();
-//     return res.status(201).send({ prodBrand });
-// })
+//to sort the product by types
+router.get("/sort/type", async (req, res) => {
+    const type = req.query.type;
+    const prodBrand = await Men
+        .find({ brand: { $eq: `${type}` } })
+        .lean()
+        .exec();
+    return res.status(201).send({ combi:prodBrand });
+})
 
 //to sort the product by price
 router.get("/sort/price", async (req, res) => {
@@ -82,7 +82,7 @@ router.get("/sort/price", async (req, res) => {
         .find({ $and: [{ price: { $gt: `${from}` } }, { price: { $lt: `${to}` } }] })
         .lean()
         .exec();
-    return res.status(201).send({ prodPrice });
+    return res.status(201).send({ combi:prodPrice });
 })
 
 module.exports = router;
