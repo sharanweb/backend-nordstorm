@@ -16,7 +16,16 @@ router.post("/",async(req,res)=>{
 
 router.get("/", async(req,res)=>{
     try {
-        const cart = await Cart.find().lean().exec();
+        const cart = await Cart.find().populate().lean().exec();
+        return res.status(201).send({"cart":cart});
+    } catch (error) {
+        return res.status(500).send({message: error.message});
+    }
+});
+
+router.get("/:id", async(req,res)=>{
+    try {
+        const cart = await Cart.find(req.params.id).populate().lean().exec();
         return res.status(201).send({"cart":cart});
     } catch (error) {
         return res.status(500).send({message: error.message});
