@@ -78,7 +78,7 @@ router.get("/sort/type", async (req, res) => {
 router.get("/sort/price", async (req, res) => {
     const from = req.query.from;
     const to = req.query.to;
-    const prodPrice = await Product
+    const prodPrice = await Men
         .find({ $and: [{ price: { $gt: `${from}` } }, { price: { $lt: `${to}` } }] })
         .lean()
         .exec();
