@@ -8,7 +8,13 @@ const cartSchema = new mongoose.Schema(
             ref:"combi",
             required:false
             },
-        total:{type:String, required:false}
+            user_id: 
+            {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"user",
+            required:false
+            },
+        
         
     },
     {
