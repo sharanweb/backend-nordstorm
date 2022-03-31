@@ -8,7 +8,7 @@ const cartSchema = new mongoose.Schema(
             ref:"combi",
             required:false
             }],
-        total:{type:String, required:true}
+        total:{type:String, required:false}
         
     },
     {

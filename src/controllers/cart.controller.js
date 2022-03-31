@@ -4,9 +4,9 @@ const router = express.Router();
 const Cart = require("../models/cart.model");
 
 
-router.post("/",async(req,res)=>{
+router.post("/:id",async(req,res)=>{
     try {
-        const cart = await Cart.create(req.body);
+        const cart = await Cart.create(req.params.id, req.body);
         return res.status(201).send(cart);
     } catch (error) {
         return res.status(500).send({message: error.message});
