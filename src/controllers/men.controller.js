@@ -68,7 +68,7 @@ router.get("/sort/brand", async (req, res) => {
 router.get("/sort/type", async (req, res) => {
     const type = req.query.type;
     const prodBrand = await Men
-        .find({ brand: { $eq: `${type}` } })
+        .find({ type: { $eq: `${type}` } })
         .lean()
         .exec();
     return res.status(201).send({ combi:prodBrand });
