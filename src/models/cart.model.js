@@ -7,13 +7,13 @@ const cartSchema = new mongoose.Schema(
             type:mongoose.Schema.Types.ObjectId,
             ref:"combi",
             required:false
-            },
-            user_id: 
+        },
+        user_id: 
             {
             type:mongoose.Schema.Types.ObjectId,
             ref:"user",
             required:false
-            },
+        },
         
         
     },
