@@ -41,5 +41,14 @@ router.delete("/:id", async(req,res)=>{
     }
 });
 
+// router.get("/:user_id", async(req,res)=>{
+//     try {
+//         const cart = await Cart.find({user_id:req.params.user_id}).lean().exec();
+//         return res.status(201).send({"cart":cart});
+//     } catch (error) {
+//         return res.status(500).send({message: error.message});
+//     }
+// });
+
 
 module.exports = router;
